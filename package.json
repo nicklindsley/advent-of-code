@@ -1,0 +1,20 @@
+{
+    "name": "advent-calendar-test",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint && tsc",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.1",
+        "@types/node": "^24.10.1",
+        "eslint": "^9.39.1",
+        "globals": "^16.5.0",
+        "husky": "^9.1.7",
+        "prettier": "^3.7.3",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.48.0"
+    },
+    "private": true
+}

@@ -9,7 +9,8 @@
         "lint": "eslint . && tsc --noEmit",
         "prepare": "husky",
         "problem-1": "npm run build && node dist/2025/problem1",
-        "problem-2": "npm run build && node dist/2025/problem2"
+        "problem-2-1": "npm run build && node dist/2025/problem2/part1",
+        "problem-2-2": "npm run build && node dist/2025/problem2/part2"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",

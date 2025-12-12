@@ -1,12 +1,23 @@
 import { input } from './input.js';
 
+type Battery = { value: number; index: number };
+
+const numberOfDigits = 12;
+const digits = [...Array(numberOfDigits).keys()].reverse();
+
 const getJoltage = (batteryBank: string) => {
-    const firstBattery = getMaxBattery(batteryBank, undefined, batteryBank.length - 1);
-    const secondBattery = getMaxBattery(batteryBank, firstBattery.index);
-    return Number(`${firstBattery.value}${secondBattery.value}`);
+    const batteries = digits.reduce(
+        (acc, digit) => {
+            const nextBattery = getMaxBattery(batteryBank, acc.index, batteryBank.length - digit);
+            return { ...nextBattery, joltage: `${acc.joltage}${nextBattery.value}` };
+        },
+        { value: 0, index: -1, joltage: '' }
+    );
+
+    return Number(batteries.joltage);
 };
 
-const getMaxBattery = (batteryBank: string, minIndex?: number, maxIndex?: number) => {
+const getMaxBattery = (batteryBank: string, minIndex?: number, maxIndex?: number): Battery => {
     const batteries = batteryBank.split('').map((i) => Number(i));
     return batteries.reduce(
         (acc, cur, index) =>
